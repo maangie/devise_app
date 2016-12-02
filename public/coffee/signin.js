@@ -2,7 +2,6 @@
 (function() {
   $(function() {
     return $('form').submit(function() {
-      console.log('click');
       return $.ajax({
         async: true,
         type: 'POST',

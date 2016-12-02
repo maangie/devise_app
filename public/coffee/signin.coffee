@@ -1,6 +1,5 @@
 $ ->
   $('form').submit ->
-    console.log 'click'
     $.ajax
       async: true
       type: 'POST'
