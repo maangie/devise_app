@@ -14,10 +14,7 @@
           return Common.saveAccessInfo(data);
         },
         error: function(xhr, status, error) {
-          return alert(xhr.responseJSON.exception);
-        },
-        complete: function(xhr, status) {
-          return alert(status);
+          return alert(xhr.responseJSON.exception || xhr.responseJSON.error);
         }
       });
     });
@@ -25,21 +22,17 @@
       return $.ajax({
         async: true,
         type: 'GET',
-        url: '/api/v1/users',
-        data: Common.emailPassword(),
+        url: "/api/v1/users/" + (Common.userId()),
+        headers: {
+          'Authorization': Common.accessToken()
+        },
         dataType: 'json',
         context: this,
         success: function(data, status, xhr) {
-          alert(status);
-          return $.cookie('access_token', data.access_token, {
-            expires: new Date('Tue, 1-Jan-2030 00:00:00 GMT')
-          });
+          return alert(JSON.stringify(data));
         },
         error: function(xhr, status, error) {
-          return alert(xhr.responseJSON.exception);
-        },
-        complete: function(xhr, status) {
-          return alert(status);
+          return alert(xhr.responseJSON.exception || xhr.responseJSON.error);
         }
       });
     });

@@ -11,5 +11,5 @@ $ ->
         alert status
         Common.saveAccessInfo data
       error: (xhr, status, error) ->
-        alert xhr.responseJSON.exception
-      complete: (xhr, status) -> alert status
+        alert xhr.responseJSON.exception || xhr.responseJSON.error
+      # complete: (xhr, status) -> alert status

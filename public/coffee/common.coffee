@@ -5,6 +5,7 @@ class window.Common
   @saveAccessInfo: (data) ->
     $.cookie 'access_token', data.access_token, _expires()
 
+  @accessToken: -> $.cookie('access_token')
   @userId: -> $.cookie('access_token').split(':')[0]
 
   _expires = -> { expires: new Date('Tue, 1-Jan-2030 00:00:00 GMT') }

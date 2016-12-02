@@ -13,8 +13,15 @@
     };
 
     Common.saveAccessInfo = function(data) {
-      $.cookie('access_token', data.access_token, _expires());
-      return $.cookie('user_id', data.user_id, _expires());
+      return $.cookie('access_token', data.access_token, _expires());
+    };
+
+    Common.accessToken = function() {
+      return $.cookie('access_token');
+    };
+
+    Common.userId = function() {
+      return $.cookie('access_token').split(':')[0];
     };
 
     _expires = function() {

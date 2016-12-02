@@ -16,10 +16,7 @@
           return Common.saveAccessInfo(data);
         },
         error: function(xhr, status, error) {
-          return alert(xhr.responseJSON.exception);
-        },
-        complete: function(xhr, status) {
-          return alert(status);
+          return alert(xhr.responseJSON.exception || xhr.responseJSON.error);
         }
       });
     });
