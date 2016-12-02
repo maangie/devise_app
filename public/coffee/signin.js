@@ -14,9 +14,7 @@
         context: this,
         success: function(data, status, xhr) {
           alert(status);
-          return $.cookie('access_token', data.access_token, {
-            expires: new Date('Tue, 1-Jan-2030 00:00:00 GMT')
-          });
+          return Common.saveAccessInfo(data);
         },
         error: function(xhr, status, error) {
           return alert(xhr.responseJSON.exception);
